@@ -42,6 +42,8 @@ FB.api('me/?fields=posts,photos&access_token=EAADrHGp62SEBANfRQvuftAX65Dh8Px4p9O
     alert('eror');
   }else{
     console.log('ID:'+JSON.stringify(response) );
+    var dataNum = response.posts.data.length;
+    console.log("dataNum"+ dataNum);
   }
   
   
