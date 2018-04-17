@@ -11,7 +11,7 @@
 </head>
 <body>
     <div id="fb-root"></div>
-  
+  <div id="showPost"></div>
   <script>
     window.fbAsyncInit = function() {
     FB.init({
@@ -44,6 +44,34 @@ FB.api('me/?fields=posts,photos&access_token=EAADrHGp62SEBANfRQvuftAX65Dh8Px4p9O
     console.log('ID:'+JSON.stringify(response) );
     var dataNum = response.posts.data.length;
     console.log("dataNum"+ dataNum);
+    var i=0;
+    for(i=0;i<dataNum;i++){
+         var postid = response.posts.data[i].id;
+         var newDiv= $("<div>");
+        newDiv.attr("data-href","https://www.facebook.com/sara.alinazari/posts/"+postid);
+        newDiv.attr("data-show-text","true");
+        newDiv.attr("class","fb-post");
+        newDiv.attr("data-width","500");
+        newDiv.attr("data-show-text","true");
+        $("#showPost").append(newDiv);
+        // var newb = $("<blockquote>");
+        // newb.addClass("fb-xfbml-parse-ignore");
+        // newb.attr("cite","https://www.facebook.com/sara.alinazari/posts/"+postid);
+        // newb.attr("data-width","500");
+        // newb.attr("data-show-text","true");
+        
+
+        // var newp=$("<p>");
+        // newb.text();
+        //  <div class="fb-post" data-href="https://www.facebook.com/sara.alinazari/posts/10216378709244119" 
+        //  data-width="500" data-show-text="true">
+        //  <blockquote cite="https://www.facebook.com/sara.alinazari/posts/10216378709244119" 
+        //  class="fb-xfbml-parse-ignore"><p>I am not sure if I am the person who is unable to manage, 
+        //   or it is the nature of life ? :( Sometimes it is so hard to survive.  😥</p>Posted by 
+        //   <a href="#" role="button">Sara Alinazari</a> on&nbsp;
+        //   <a href="https://www.facebook.com/sara.alinazari/posts/10216378709244119">
+        //     Sunday, April 8, 2018</a></blockquote></div>
+    }
   }
   
   
