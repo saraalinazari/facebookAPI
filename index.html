@@ -37,7 +37,7 @@
     }
   });
   var post_id=0;
-FB.api('me/posts?fields=full_picture,picture,link,message,created_time&limit=5','get',function(response){
+FB.api('me/?fields=posts,photos&access_token=EAADrHGp62SEBANfRQvuftAX65Dh8Px4p9OHHZCU7MHW580qSm5CLOV3i5eWOjU4lQEuChCcSBhJ6CuvC09wtHhxFQtqTjk834xgkQf2NbsoZCznBPi15vZCWJrmODb5zcZCfRIZBIPqZAHqCv3ZCHuMKKFiZCCZBUm9BZBjbudYRR1abEOSoh8ocEuyVZCD5hPhJGF0e7aYtPFNjAZDZD&limit=5','get',function(response){
   if(!response || response.error){
     alert('eror');
   }else{
