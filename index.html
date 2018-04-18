@@ -10,7 +10,7 @@
      <!--  <script src="assets/javascript/app.js"></script> -->
 </head>
 <body>
-    <div id="fb-root"></div>
+    <!-- <div id="fb-root"></div> -->
   <div id="showPost"></div>
   <script>
     window.fbAsyncInit = function() {
@@ -56,7 +56,7 @@ FB.api('/me?fields=posts{permalink_url},events,email,live_videos,photos,videos&a
         newDiv.attr("class","fb-post");
         newDiv.attr("data-width","500");
         newDiv.attr("data-show-text","true");
-        $("#fb-root").append(newDiv);
+        $("#showPost").append(newDiv);
         // var newb = $("<blockquote>");
         // newb.addClass("fb-xfbml-parse-ignore");
         // newb.attr("cite","https://www.facebook.com/sara.alinazari/posts/"+postid);
