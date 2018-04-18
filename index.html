@@ -6,12 +6,48 @@
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-  
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
      <!--  <script src="assets/javascript/app.js"></script> -->
 </head>
 <body>
     <div id="fb-root"></div>
-  <div id="showPost">Salam </div>
+  <!-- <div id="showPost">Salam </div> -->
+  
+  <div class="container">
+                
+      <div class="row width-100 d-flex border border-secondary">
+              <a href="https://www.google.com">
+          <div class="  d-flex align-items-start mt-2 ">
+              <!-- <div> -->
+
+                  <img src="assets/images/sarafacebook.jpg">
+              <!-- </div> -->
+              <div id="showPageInfo" class="d-inline-flex flex-column bd-highlight ml-2">
+                 
+                  <span id="pageName" > Sara Alinazari</span>
+                  <span id="postCreateDate" class=" d-inline-flex"> Sunday, April 15</span>
+              </div>   
+          </div>
+  
+          
+          <div class=" align-items-end bd-highlight">    
+              <img src="assets/images/facebook_logo.png">
+          </div>
+          </a>
+          </div>
+      
+          <div class="row" id="showPost">
+              
+
+          </div>
+          <div>
+
+          </div>
+
+      </div>
+
+
+
   <script>
     window.fbAsyncInit = function() {
     FB.init({
@@ -26,7 +62,7 @@
   
   
   var post_id=0;
-FB.api('/me?fields=id,name,likes,posts{message}&access_token=EAADrHGp62SEBAGwT293ze9P2c8ihYFjYXPYcUPEOAZBjDkAJvv6UVZBuPa4YVeObUohi54uGzFFi1kWeJmx55JShgP5nUbOcqxYXM9S56OHqaML3c6AB7fj3M1ZAYc6x4WXqEIUS394MwEH4v4jLmgT3GVISYlGPpTt04rZAIIPhYxvLBJMa6vDEiu5prSbN7T1lB5gLxQZDZD&limit=5','get',function(response){
+FB.api('/me?fields=id,name,likes,posts{message,id,picture,permalink_url,full_picture,created_time,likes,shares,comments},first_name,last_name,short_name,picture&access_token=EAADrHGp62SEBAGwT293ze9P2c8ihYFjYXPYcUPEOAZBjDkAJvv6UVZBuPa4YVeObUohi54uGzFFi1kWeJmx55JShgP5nUbOcqxYXM9S56OHqaML3c6AB7fj3M1ZAYc6x4WXqEIUS394MwEH4v4jLmgT3GVISYlGPpTt04rZAIIPhYxvLBJMa6vDEiu5prSbN7T1lB5gLxQZDZD&limit=5','get',function(response){
   if(!response || response.error){
     alert('eror');
   }else{
@@ -34,7 +70,22 @@ FB.api('/me?fields=id,name,likes,posts{message}&access_token=EAADrHGp62SEBAGwT29
     var dataNum = response.posts.data.length;
     console.log("dataNum"+ dataNum);
     var i=0;
-  var newDiv=document.createElement("div");
+    for(i=0;i<dataNum;i++){
+      var newDiv1 = document.createElement("div");
+      newDiv1.setAttribute("class", "col-md-10");
+      newDiv1.innerText = response.posts.data[i].message;
+
+      var newDiv2=document.createElement("div");
+      newDiv2.setAttribute("class","col-md-2");
+      var postImage = document.createElement("img");
+      postImage.src = response.posts.data[i].picture;
+      newDiv2.appendChild(postImage);
+
+      var showPostDiv = document.getElementById("showPost");
+      showPostDiv.appendChild(newDiv1);
+      showPostDiv.appendChild(newDiv2);
+
+    }
 
 
   }
@@ -42,6 +93,10 @@ FB.api('/me?fields=id,name,likes,posts{message}&access_token=EAADrHGp62SEBAGwT29
   
 });
 };
+
+
+
+
   // (function(d, s, id){
   //    var js,id='facebook-jssdk', fjs = d.getElementsByTagName(s)[0];
   //    if (d.getElementById(id)) {return;}
@@ -68,6 +123,8 @@ FB.api('/me?fields=id,name,likes,posts{message}&access_token=EAADrHGp62SEBAGwT29
 // });
 
   </script>
+  
+
   <!-- <p><a href="#" onclick="postit();return false">Post it</a>   </p>
   <p><a href="#" onclick="deleteit(); return false">Deleet it!</a></p> -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
