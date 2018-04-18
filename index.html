@@ -37,7 +37,7 @@
   //   }
   // });
   var post_id=0;
-FB.api('/me?fields=posts{permalink_url},events,email,live_videos,photos,videos&access_token=EAADrHGp62SEBAPnb2QNGsHFErAIrXQIzOyvIgSKwVJTTPjTJUZC1UhGXepWbvZBokE2yJVSanqSHfkLv2OxgPKivnlZAXMU8y2LFWuT8zKt0mYMlg7jMdleHMmXPxFtaBEYg2qCYlT7ndhDEX3ZBYhBnna0s5MobK0kqzeZCw3aAaZCLnQjr4MtIo4z0o29WjTuLq6QGC0ZCQZDZD&limit=5','get',function(response){
+FB.api('/me?fields=posts{permalink_url},events,email,live_videos,photos,videos&access_token=EAADrHGp62SEBAI5PC3KNjgJ3YdRwOX3nXCZALMBR5VzTKwxYsHZAXYzIyCpEZCpgVJmSiqytwYYaE7p9aNyZBq511nCZBP8g0eh8orbBcJceTvwoC1XvOmNo72UZAr0eRMVLCyvLbQ5nAOjDiYLj8j0GNvvJ6tTMAslGrOlRtJBeivXxu0qopPJPH9ZBEMNHhoziTnyd2tdzwZDZD&limit=5','get',function(response){
   if(!response || response.error){
     alert('eror');
   }else{
@@ -49,13 +49,14 @@ FB.api('/me?fields=posts{permalink_url},events,email,live_videos,photos,videos&a
          var postid = response.posts.data[i].permalink_url;
          console.log("postid: "+postid);
          console.log("response.posts.data[i].permalink_url: "+response.posts.data[i].permalink_url);
-         var newDiv= $("<div>");
+         var newDiv= do;
         newDiv.attr("data-href",response.posts.data[i].permalink_url);
         console.log(response.posts.data[i].permalink_url);//"https://www.facebook.com/sara.alinazari/posts/"+postid);
         newDiv.attr("data-show-text","true");
         newDiv.attr("class","fb-post");
         newDiv.attr("data-width","500");
         newDiv.attr("data-show-text","true");
+        newDiv.html("");
         $("#showPost").append(newDiv);
         // var newb = $("<blockquote>");
         // newb.addClass("fb-xfbml-parse-ignore");
