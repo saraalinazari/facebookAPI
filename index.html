@@ -47,6 +47,8 @@ FB.api('/me?fields=posts{permalink_url},events,email,live_videos,photos,videos&a
     var i=0;
     for(i=0;i<dataNum;i++){
          var postid = response.posts.data[i].permalink_url;
+         console.log("postid: "+postid);
+         console.log("response.posts.data[i].permalink_url: "+response.posts.data[i].permalink_url);
          var newDiv= $("<div>");
         newDiv.attr("data-href",response.posts.data[i].permalink_url);
         console.log(response.posts.data[i].permalink_url);//"https://www.facebook.com/sara.alinazari/posts/"+postid);
