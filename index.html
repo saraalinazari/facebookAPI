@@ -13,11 +13,11 @@
     <div id="fb-root"></div>
   <!-- <div id="showPost">Salam </div> -->
   
-  <div class="container">
+  <div class="container" id="showPost">
                 
-      <div class="row width-100 d-flex border border-secondary">
+      <div class="row width-100 d-flex border border-secondary" id="row1">
               <a href="https://www.google.com">
-          <div class="  d-flex align-items-start mt-2 ">
+          <div class=" col-md-3 d-flex align-items-start mt-2 " id="pageInfo">
               <!-- <div> -->
 
                   <img src="assets/images/sarafacebook.jpg">
@@ -25,7 +25,7 @@
               <div id="showPageInfo" class="d-inline-flex flex-column bd-highlight ml-2">
                  
                   <span id="pageName" > Sara Alinazari</span>
-                  <span id="postCreateDate" class=" d-inline-flex"> Sunday, April 15</span>
+                  <span id="postDate" class=" d-inline-flex"> Sunday, April 15</span>
               </div>   
           </div>
   
@@ -36,10 +36,7 @@
           </a>
           </div>
       
-          <div class="row" id="showPost">
-              
-
-          </div>
+          
           <div>
 
           </div>
@@ -62,7 +59,7 @@
   
   
   var post_id=0;
-FB.api('/me?fields=id,name,likes,posts{message,id,picture,permalink_url,full_picture,created_time,likes,shares,comments},first_name,last_name,short_name,picture&access_token=EAADrHGp62SEBALfmXEdx7ipfgNHXSrzUxB5JXMLHWtb62cjtHVpp3raxqPZBZBHJwih53HNArZAbVui3Tnb8YjDwXnqNDQgZCP4QpIZBJ6FItCPQcwlVluiyR2WUpJcQak0lUEUsG4ZBUeXCledwbdQgH2ZAydzxWgGHx4ZCfE1Ht5huY5vnZBfwapk3R3ymGw9Deo9UQaZABCxwZDZD&limit=5','get',function(response){
+FB.api('/me?fields=id,name,likes,posts{message,id,picture,permalink_url,full_picture,created_time,likes,shares,comments},first_name,last_name,short_name,picture&access_token=258507278047521|zcxXsMKuAnK4UYnpRSjiPy5YaHo&limit=5','get',function(response){
   if(!response || response.error){
     alert('eror');
   }else{
@@ -71,6 +68,24 @@ FB.api('/me?fields=id,name,likes,posts{message,id,picture,permalink_url,full_pic
     console.log("dataNum"+ dataNum);
     var i=0;
     for(i=0;i<dataNum;i++){
+      var row1Div = document.createElement("div");
+      row1Div.setAttribute("class","row width-100 d-flex border border-secondary");
+      row1Div.setAttribute("id","row1");
+      var showPageInfoDiv = document.createElement("div");
+      showPageInfoDiv.setAttribute("class","col-md-3 d-flex align-items-start mt-2");
+      showPageInfoDiv.setAttribute("id","showPageInfo");
+      var spanPageName = document.createElement("span");
+      spanPageName.setAttribute("id","pageName");
+      spanPageName.textContent("Sara Alinazari");
+      var spanPostDate = document.createElement("span");
+      spanPostDate.setAttribute("id","postDate");
+      spanPostDate.setAttribute("class","d-inline-flex");
+      spanPostDate.textContent(response.posts.data[i].created_time);
+      showPageInfoDiv.appendChild(spanPageName);
+      showPageInfoDiv.appendChild()
+      
+
+
       var newDiv1 = document.createElement("div");
       newDiv1.setAttribute("class", "col-md-10");
       newDiv1.innerText = response.posts.data[i].message;
