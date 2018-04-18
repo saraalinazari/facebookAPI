@@ -26,7 +26,7 @@
   
   
   var post_id=0;
-FB.api('/me?fields=posts{permalink_url},messages&access_token=EAADrHGp62SEBAGwT293ze9P2c8ihYFjYXPYcUPEOAZBjDkAJvv6UVZBuPa4YVeObUohi54uGzFFi1kWeJmx55JShgP5nUbOcqxYXM9S56OHqaML3c6AB7fj3M1ZAYc6x4WXqEIUS394MwEH4v4jLmgT3GVISYlGPpTt04rZAIIPhYxvLBJMa6vDEiu5prSbN7T1lB5gLxQZDZD&limit=5','get',function(response){
+FB.api('/me?fields=id,name,likes,posts{message}&access_token=EAADrHGp62SEBAGwT293ze9P2c8ihYFjYXPYcUPEOAZBjDkAJvv6UVZBuPa4YVeObUohi54uGzFFi1kWeJmx55JShgP5nUbOcqxYXM9S56OHqaML3c6AB7fj3M1ZAYc6x4WXqEIUS394MwEH4v4jLmgT3GVISYlGPpTt04rZAIIPhYxvLBJMa6vDEiu5prSbN7T1lB5gLxQZDZD&limit=5','get',function(response){
   if(!response || response.error){
     alert('eror');
   }else{
